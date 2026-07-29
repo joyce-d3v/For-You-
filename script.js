@@ -203,11 +203,8 @@ function createLoveHeart(){
 
     const points = [];
 
-    const scale = window.innerWidth <= 600 ? 13 : 18;
-    const step = window.innerWidth <= 600 ? 0.12 : 0.08;
-
     // Heart equation
-    for(let t = 0; t < Math.PI * 2; t += step){
+    for(let t = 0; t < Math.PI * 2; t += 0.08){
 
         const x = 16 * Math.pow(Math.sin(t),3);
 
@@ -219,13 +216,14 @@ function createLoveHeart(){
 
         points.push({
 
-            x: x * scale,
+            x: x * 18,
 
-            y: -y * scale
+            y: -y * 18
 
         });
 
     }
+
 
     points.forEach((point,index)=>{
 
@@ -254,15 +252,13 @@ function createLoveHeart(){
 
             word.style.opacity = "1";
 
-            const spacing = window.innerWidth <= 600 ? 1.3 : 1;
+            word.style.left =
+                `calc(50% + ${point.x}px)`;
 
-word.style.left =
-    `calc(50% + ${point.x * spacing}px)`;
+            word.style.top =
+                `calc(45% + ${point.y}px)`;
 
-word.style.top =
-    `calc(45% + ${point.y * spacing}px)`;
-
-        },index*55);
+        },index*40);
 
     });
 
