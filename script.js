@@ -214,13 +214,15 @@ function createLoveHeart(){
             -2 * Math.cos(3*t)
             -Math.cos(4*t);
 
-        points.push({
+        const scale = window.innerWidth <= 600 ? 11 : 18;
 
-            x: x * 18,
+points.push({
 
-            y: -y * 18
+    x: x * scale,
 
-        });
+    y: -y * scale
+
+});
 
     }
 
