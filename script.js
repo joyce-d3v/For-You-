@@ -206,9 +206,6 @@ function createLoveHeart(){
 const scale = window.innerWidth <= 600 ? 13 : 18;
 const step = window.innerWidth <= 600 ? 0.12 : 0.08;
 
-// Heart equation
-for(let t = 0; t < Math.PI * 2; t += step){
-
     // Heart equation
     const step = window.innerWidth <= 600 ? 0.12 : 0.08;
 
