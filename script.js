@@ -203,14 +203,11 @@ function createLoveHeart(){
 
     const points = [];
 
-const scale = window.innerWidth <= 600 ? 13 : 18;
-const step = window.innerWidth <= 600 ? 0.12 : 0.08;
+    const scale = window.innerWidth <= 600 ? 13 : 18;
+    const step = window.innerWidth <= 600 ? 0.12 : 0.08;
 
     // Heart equation
-    const step = window.innerWidth <= 600 ? 0.12 : 0.08;
-    const scale = window.innerWidth <= 600 ? 13 : 18;
-
-for(let t = 0; t < Math.PI * 2; t += step){
+    for(let t = 0; t < Math.PI * 2; t += step){
 
         const x = 16 * Math.pow(Math.sin(t),3);
 
@@ -220,18 +217,15 @@ for(let t = 0; t < Math.PI * 2; t += step){
             -2 * Math.cos(3*t)
             -Math.cos(4*t);
 
-        const scale = window.innerWidth <= 600 ? 11 : 18;
+        points.push({
 
-points.push({
+            x: x * scale,
 
-    x: x * scale,
+            y: -y * scale
 
-    y: -y * scale
-
-});
+        });
 
     }
-
 
     points.forEach((point,index)=>{
 
