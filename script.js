@@ -262,7 +262,7 @@ word.style.left =
 word.style.top =
     `calc(45% + ${point.y * spacing}px)`;
 
-        },index*40);
+        },index*55);
 
     });
 
