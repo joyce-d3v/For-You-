@@ -208,7 +208,7 @@ const step = window.innerWidth <= 600 ? 0.12 : 0.08;
 
     // Heart equation
     const step = window.innerWidth <= 600 ? 0.12 : 0.08;
-    const scale = window.innerWidth <= 600 ? 11 : 18;
+    const scale = window.innerWidth <= 600 ? 13 : 18;
 
 for(let t = 0; t < Math.PI * 2; t += step){
 
