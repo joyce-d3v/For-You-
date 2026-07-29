@@ -254,11 +254,13 @@ points.push({
 
             word.style.opacity = "1";
 
-            word.style.left =
-                `calc(50% + ${point.x}px)`;
+            const spacing = window.innerWidth <= 600 ? 1.3 : 1;
 
-            word.style.top =
-                `calc(45% + ${point.y}px)`;
+word.style.left =
+    `calc(50% + ${point.x * spacing}px)`;
+
+word.style.top =
+    `calc(45% + ${point.y * spacing}px)`;
 
         },index*40);
 
