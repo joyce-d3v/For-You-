@@ -204,7 +204,9 @@ function createLoveHeart(){
     const points = [];
 
     // Heart equation
-    for(let t = 0; t < Math.PI * 2; t += 0.08){
+    const step = window.innerWidth <= 600 ? 0.12 : 0.08;
+
+for(let t = 0; t < Math.PI * 2; t += step)
 
         const x = 16 * Math.pow(Math.sin(t),3);
 
