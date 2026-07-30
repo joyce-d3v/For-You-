@@ -134,6 +134,8 @@ yesButtons.forEach(button=>{
 
 
 function startExperience(){
+    
+    alert("Button clicked!");
 
     questionPage.classList.add("fade-out");
 
