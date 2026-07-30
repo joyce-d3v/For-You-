@@ -1,5 +1,13 @@
-/* Google Font */
+/* ===========================
+   GOOGLE FONT
+=========================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
+
+
+/* ===========================
+   RESET
+=========================== */
 
 *{
     margin:0;
@@ -8,9 +16,15 @@
     font-family:'Poppins',sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
+
     min-height:100vh;
     overflow:hidden;
+    position:relative;
 
     background:linear-gradient(
         -45deg,
@@ -23,9 +37,13 @@ body{
     background-size:400% 400%;
     animation:gradientMove 12s ease infinite;
 
-    position:relative;
-    }
-    
+}
+
+
+/* ===========================
+   BACKGROUND ANIMATION
+=========================== */
+
 @keyframes gradientMove{
 
     0%{
@@ -42,99 +60,135 @@ body{
 
 }
 
-.container{
 
-    width:100%;
+/* ===========================
+   SHARED SCREEN
+=========================== */
+
+.screen{
+
+    position:absolute;
+    inset:0;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     padding:25px;
 
 }
+
+
+/* ===========================
+   HIDDEN
+=========================== */
+
+.hidden{
+
+    display:none;
+
+}
+
+
+/* ===========================
+   QUESTION CARD
+=========================== */
 
 .card{
 
     width:430px;
     max-width:95%;
-    padding:45px 35px;
+
+    padding:40px 30px;
+
+    border-radius:30px;
 
     text-align:center;
 
-    border-radius:35px;
+    background:rgba(255,255,255,.45);
 
     backdrop-filter:blur(20px);
 
-    background:rgba(255,255,255,.45);
-
-    border:2px solid rgba(255,255,255,.55);
+    border:2px solid rgba(255,255,255,.5);
 
     box-shadow:
     0 15px 40px rgba(255,105,180,.18);
 
-    animation:cardFloat 4s ease-in-out infinite;
+    animation:floatCard 4s ease-in-out infinite;
 
 }
 
-.loading-screen{
 
-    position:absolute;
+/* ===========================
+   FLOATING CARD
+=========================== */
 
-    inset:0;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    flex-direction:column;
-
-    text-align:center;
-
-}
-
-@keyframes cardFloat{
+@keyframes floatCard{
 
     0%{
-        transform:translateY(0px);
+
+        transform:translateY(0);
+
     }
 
     50%{
+
         transform:translateY(-10px);
+
     }
 
     100%{
-        transform:translateY(0px);
+
+        transform:translateY(0);
+
     }
 
 }
+
+
+/* ===========================
+   KITTY
+=========================== */
 
 .kitty{
 
     width:170px;
+
     margin-bottom:18px;
 
-    animation:kittyBounce 3s infinite ease-in-out;
+    animation:kittyBounce 3s ease-in-out infinite;
 
 }
+
 
 @keyframes kittyBounce{
 
     0%{
+
         transform:translateY(0);
+
     }
 
     50%{
+
         transform:translateY(-8px);
+
     }
 
     100%{
+
         transform:translateY(0);
+
     }
 
 }
 
-h1{
+
+/* ===========================
+   TEXT
+=========================== */
+
+.card h1{
 
     color:#ff4d94;
 
@@ -144,17 +198,21 @@ h1{
 
 }
 
+
 .card p{
 
     color:#6f4b63;
 
     line-height:1.8;
 
-    font-size:16px;
-
     margin-bottom:35px;
 
 }
+
+
+/* ===========================
+   BUTTONS
+=========================== */
 
 .buttons{
 
@@ -165,6 +223,7 @@ h1{
     gap:20px;
 
 }
+
 
 button{
 
@@ -178,11 +237,11 @@ button{
 
     cursor:pointer;
 
-    font-size:18px;
+    color:white;
+
+    font-size:17px;
 
     font-weight:600;
-
-    color:white;
 
     background:#ff5fa2;
 
@@ -192,6 +251,7 @@ button{
     0 10px 20px rgba(255,105,180,.3);
 
 }
+
 
 button:hover{
 
@@ -203,19 +263,320 @@ button:hover{
 
 }
 
+
 button:active{
 
-    transform:scale(.94);
+    transform:scale(.95);
 
 }
 
-.hearts{
 
-    position:fixed;
+/* ===========================
+   LOADING PAGE
+=========================== */
+
+.loading-card{
+
+    width:420px;
+
+    max-width:95%;
+
+    text-align:center;
+
+}
+
+
+.loading-card h2{
+
+    color:#ff4d94;
+
+    margin-bottom:25px;
+
+}
+
+
+/* ===========================
+   PROGRESS BAR
+=========================== */
+
+.progress{
 
     width:100%;
 
+    height:14px;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    background:#ffd6e8;
+
+}
+
+
+.progress-bar{
+
+    width:0;
+
     height:100%;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        90deg,
+        #ff69b4,
+        #ff8fc4
+    );
+
+}
+
+
+.loading-text{
+
+    margin-top:25px;
+
+    color:#6f4b63;
+
+    font-size:18px;
+
+}
+
+/* ===========================
+   LOVE LETTER
+=========================== */
+
+.letter-card{
+
+    width:420px;
+    max-width:95%;
+
+    background:rgba(255,255,255,.95);
+
+    border-radius:30px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:
+    0 15px 40px rgba(255,105,180,.20);
+
+    animation:floatCard 4s ease-in-out infinite;
+
+}
+
+.letter-card h1{
+
+    color:#ff4d94;
+
+    margin-bottom:20px;
+
+    font-size:2rem;
+
+}
+
+#letterText{
+
+    color:#666;
+
+    line-height:1.9;
+
+    white-space:pre-line;
+
+    text-align:left;
+
+    margin-bottom:30px;
+
+    font-size:16px;
+
+}
+
+#continueBtn{
+
+    display:block;
+
+    margin:auto;
+
+}
+
+
+/* ===========================
+   HEART PAGE
+=========================== */
+
+#heartPage{
+
+    flex-direction:column;
+
+    overflow:hidden;
+
+}
+
+#heartContainer{
+
+    position:relative;
+
+    width:100%;
+
+    height:70vh;
+
+}
+
+
+/* ===========================
+   LOVE WORDS
+=========================== */
+
+.love-word{
+
+    position:absolute;
+
+    color:#ff4f93;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+    opacity:0;
+
+    text-shadow:
+    0 0 10px rgba(255,105,180,.5);
+
+    transition:
+
+        left 1.6s ease,
+
+        top 1.6s ease,
+
+        opacity .8s,
+
+        transform .8s;
+
+}
+
+
+/* ===========================
+   FINAL MESSAGE
+=========================== */
+
+.final-message{
+
+    position:absolute;
+
+    top:40px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    text-align:center;
+
+    z-index:10;
+
+}
+
+.final-message h2{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:48px;
+
+    color:#ff4d94;
+
+    text-shadow:
+
+    0 0 15px rgba(255,105,180,.4);
+
+}
+
+
+/* ===========================
+   SLEEPING KITTY
+=========================== */
+
+.sleep-kitty{
+
+    position:absolute;
+
+    bottom:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:170px;
+
+    opacity:0;
+
+}
+
+.sleep-kitty.show{
+
+    animation:
+
+        kittyWalk 2.2s forwards,
+
+        kittySleep 2s ease-in-out infinite 2.2s;
+
+}
+
+
+@keyframes kittyWalk{
+
+    from{
+
+        transform:translate(-220px);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:translateX(-50%);
+
+        opacity:1;
+
+    }
+
+}
+
+
+@keyframes kittySleep{
+
+    0%{
+
+        transform:translateX(-50%) rotate(0deg);
+
+    }
+
+    50%{
+
+        transform:translateX(-50%) rotate(-2deg);
+
+    }
+
+    100%{
+
+        transform:translateX(-50%) rotate(0deg);
+
+    }
+
+}
+
+/* ===========================
+   FLOATING HEARTS
+=========================== */
+
+.hearts,
+.sparkles,
+.petals{
+
+    position:fixed;
+
+    inset:0;
 
     pointer-events:none;
 
@@ -227,11 +588,11 @@ button:active{
 
     position:absolute;
 
-    color:#ff7db5;
-
-    animation:floatHeart linear infinite;
+    color:#ff7bb5;
 
     opacity:.8;
+
+    animation:floatHeart linear forwards;
 
 }
 
@@ -240,14 +601,14 @@ button:active{
     from{
 
         transform:
-        translateY(100vh)
-        scale(.5);
+            translateY(100vh)
+            scale(.5);
 
         opacity:0;
 
     }
 
-    30%{
+    20%{
 
         opacity:1;
 
@@ -256,8 +617,8 @@ button:active{
     to{
 
         transform:
-        translateY(-120px)
-        scale(1.2);
+            translateY(-120px)
+            scale(1.3);
 
         opacity:0;
 
@@ -265,17 +626,10 @@ button:active{
 
 }
 
-.sparkles{
 
-    position:fixed;
-
-    width:100%;
-
-    height:100%;
-
-    pointer-events:none;
-
-}
+/* ===========================
+   SPARKLES
+=========================== */
 
 .sparkle{
 
@@ -305,255 +659,163 @@ button:active{
 
 }
 
-/* Sleeping Kitty */
 
-.sleep-kitty{
+/* ===========================
+   PETALS
+=========================== */
 
-    width:170px;
-
-    position:absolute;
-
-    bottom:30px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    opacity:0;
-
-}
-
-.love-word{
+.petal{
 
     position:absolute;
 
-    left:50%;
-    top:50%;
+    top:-50px;
 
-    transform:translate(-50%, -50%);
+    font-size:22px;
 
-    color:#ff4f93;
-
-    font-size:8px;
-
-    font-weight:700;
-
-    white-space:nowrap;
-
-    text-shadow:
-        0 0 10px rgba(255,105,180,.6);
-
-    transition:
-        left 1.6s cubic-bezier(.22,.61,.36,1),
-        top 1.6s cubic-bezier(.22,.61,.36,1),
-        opacity .8s,
-        transform .8s;
+    animation:fallPetal linear forwards;
 
 }
 
-.sleep-kitty.show{
-
-    animation:
-    kittyWalk 2.5s forwards,
-    kittySleep 2s ease-in-out infinite 2.5s;
-
-}
-
-@keyframes kittyWalk{
+@keyframes fallPetal{
 
     from{
 
         transform:
-        translateX(-220px);
+            translateY(-50px)
+            rotate(0deg);
 
-        opacity:0;
+        opacity:1;
 
     }
 
     to{
 
         transform:
-        translateX(-50%);
+            translateY(110vh)
+            rotate(360deg)
+            translateX(120px);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* ===========================
+   FADE ANIMATIONS
+=========================== */
+
+.fade-in{
+
+    animation:fadeIn .7s ease forwards;
+
+}
+
+.fade-out{
+
+    animation:fadeOut .6s ease forwards;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.96);
+
+    }
+
+    to{
 
         opacity:1;
 
-    }
-
-}
-
-@keyframes kittySleep{
-
-    0%{
-
-        transform:
-        translateX(-50%)
-        rotate(0deg);
-
-    }
-
-    50%{
-
-        transform:
-        translateX(-50%)
-        rotate(-2deg);
-
-    }
-
-    100%{
-
-        transform:
-        translateX(-50%)
-        rotate(0deg);
+        transform:scale(1);
 
     }
 
 }
 
-.progress{
+@keyframes fadeOut{
 
-    width:320px;
-    max-width:90%;
+    from{
 
-    height:14px;
+        opacity:1;
 
-    background:#ffd3e8;
+        transform:scale(1);
 
-    border-radius:50px;
+    }
 
-    overflow:hidden;
+    to{
 
-    margin:25px auto;
+        opacity:0;
 
-}
+        transform:scale(.96);
 
-.progress-bar{
-
-    width:0;
-
-    height:100%;
-
-    background:linear-gradient(
-        90deg,
-        #ff69b4,
-        #ff8fc4
-    );
-
-    border-radius:50px;
-
-    transition:width .2s;
+    }
 
 }
 
-@media(max-width:600px){
 
-.card{
+/* ===========================
+   MOBILE
+=========================== */
 
-    padding:35px 25px;
+@media (max-width:600px){
 
-}
+    .card{
 
-.kitty{
+        width:95%;
 
-    width:130px;
+        padding:28px 22px;
 
-}
+    }
 
-h1{
+    .kitty{
 
-    font-size:1.7rem;
+        width:120px;
 
-}
+    }
 
-button{
+    .card h1{
 
-    width:120px;
+        font-size:1.7rem;
 
-}
+    }
 
-}
+    .card p{
 
-.hidden{
-    display:none;
-}
+        font-size:15px;
 
-/* LOVE LETTER */
+    }
 
-.letter-page{
+    .buttons{
 
-    position:absolute;
-    inset:0;
+        flex-direction:column;
 
-    width:100%;
-    min-height:100vh;
+        gap:15px;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    }
 
-    padding:25px;
+    button{
 
-    z-index:20;
+        width:100%;
 
-}
-
-.letter-card{
-
-    width:700px;
-    max-width:95%;
-
-    max-height:85vh;
-
-    overflow-y:auto;
-
-    background:rgba(255,255,255,.92);
-
-    border-radius:25px;
-
-    padding:35px;
-
-    box-shadow:0 15px 40px rgba(255,105,180,.2);
-    animation:cardFloat 4s ease-in-out infinite;
-
-}
-
-.letter-card h1{
-
-    text-align:center;
-
-    color:#ff4d94;
-
-    margin-bottom:25px;
-
-}
-
-#letterText{
-
-    line-height:2;
-
-    color:#555;
-
-    white-space:pre-line;
-
-    min-height:320px;
-
-}
-
-#proceedBtn{
-
-    display:block;
-
-    margin:30px auto 0;
-
-    position:sticky;
-
-    bottom:0;
-}
-
-@media(max-width:600px){
+    }
 
     .letter-card{
 
-        padding:25px;
+        width:95%;
+
+        padding:22px;
+
+    }
+
+    .letter-card h1{
+
+        font-size:1.6rem;
 
     }
 
@@ -563,43 +825,80 @@ button{
 
         line-height:1.8;
 
-        min-height:350px;
+    }
+
+    #heartContainer{
+
+        height:60vh;
+
+    }
+
+    .love-word{
+
+        font-size:8px;
+
+    }
+
+    .final-message{
+
+        top:20px;
+
+        width:90%;
+
+    }
+
+    .final-message h2{
+
+        font-size:2rem;
+
+    }
+
+    .sleep-kitty{
+
+        width:120px;
+
+        bottom:10px;
 
     }
 
 }
 
-.final-message{
-    position:absolute;
-    top:1%;
-    left:50%;
-    transform:translateX(-50%);
-    text-align:center;
-    z-index:100;
-}
+@media (max-width:380px){
 
-.final-message h2{
+    .card{
 
-    font-family:"Great Vibes",cursive;
+        padding:22px 18px;
 
-    font-size:36px;
+    }
 
-    color:#ff4f93;
+    h1{
 
-    text-shadow:
+        font-size:1.5rem;
 
-    0 0 18px rgba(255,105,180,.4);
+    }
 
-}
+    .letter-card{
 
-.petals{
+        padding:18px;
 
-    position:fixed;
+    }
 
-    inset:0;
+    #letterText{
 
-    overflow:hidden;
+        font-size:14px;
 
-    pointer-events:none;
+    }
+
+    .love-word{
+
+        font-size:7px;
+
+    }
+
+    .sleep-kitty{
+
+        width:100px;
+
+    }
 
 }
