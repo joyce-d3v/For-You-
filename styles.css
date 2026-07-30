@@ -480,25 +480,30 @@ button{
 
 .letter-page{
 
-    width:100%;
+    position:absolute;
+    inset:0;
 
+    width:100%;
     min-height:100vh;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     padding:25px;
+
+    z-index:20;
 
 }
 
 .letter-card{
 
     width:700px;
-
     max-width:95%;
+
+    max-height:85vh;
+
+    overflow-y:auto;
 
     background:rgba(255,255,255,.92);
 
@@ -507,7 +512,6 @@ button{
     padding:35px;
 
     box-shadow:0 15px 40px rgba(255,105,180,.2);
-
     animation:cardFloat 4s ease-in-out infinite;
 
 }
@@ -536,10 +540,13 @@ button{
 
 #proceedBtn{
 
-    margin:25px auto 0;
-
     display:block;
 
+    margin:30px auto 0;
+
+    position:sticky;
+
+    bottom:0;
 }
 
 @media(max-width:600px){
