@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
@@ -17,34 +18,45 @@
 
 <body>
 
-    <!-- Floating Hearts -->
+    <!-- Floating Background -->
     <div class="hearts"></div>
-
-    <!-- Floating Sparkles -->
     <div class="sparkles"></div>
+    <div class="petals"></div>
 
-    <!-- MAIN CARD -->
-    <section class="container" id="questionCard">
+    <!-- ========================= -->
+    <!-- QUESTION PAGE -->
+    <!-- ========================= -->
+
+    <section id="questionPage" class="screen">
 
         <div class="card">
 
-            <img src="kitten.png" class="kitty">
+            <img src="kitten.png"
+                 class="kitty"
+                 alt="Cute Kitty">
 
-            <h1>Can i be your boyfriend?</h1>
+            <h1>Can I be your boyfriend?</h1>
 
             <p>
+
                 Every moment with you makes life brighter.
+
                 I'd love to make even more beautiful memories together. 💗
+
             </p>
 
             <div class="buttons">
 
-                <button id="yes1">
-                    Yes
+                <button class="yesBtn">
+
+                    Yes ❤️
+
                 </button>
 
-                <button id="yes2">
-                    Yes
+                <button class="yesBtn">
+
+                    Yes ❤️
+
                 </button>
 
             </div>
@@ -55,61 +67,98 @@
 
 
 
+    <!-- ========================= -->
+    <!-- LOADING PAGE -->
+    <!-- ========================= -->
 
+    <section id="loadingPage" class="screen hidden">
 
-    <!-- LOADING SCREEN -->
+        <div class="loading-card">
 
-    <section class="loading-screen hidden" id="loading">
+            <h2>Loading Happiness...</h2>
 
-        <h2>Loading happiness...</h2>
+            <div class="progress">
 
-        <div class="progress">
+                <div class="progress-bar"></div>
 
-            <div class="progress-bar"></div>
+            </div>
+
+            <p class="loading-text">
+
+                Collecting kisses... 💕
+
+            </p>
 
         </div>
-
-        <p class="loading-text">
-            Just a little surprise...
-        </p>
 
     </section>
-    
+
+
+
+    <!-- ========================= -->
     <!-- LOVE LETTER -->
+    <!-- ========================= -->
 
-<section class="letter-page hidden" id="letterPage">
+    <section id="letterPage" class="screen hidden">
 
-    <div class="letter-card">
+        <div class="letter-card">
 
-        <h1>💌 A Letter For You</h1>
+            <h1>💌 A Letter For You</h1>
 
-        <p id="letterText"></p>
+            <p id="letterText">
 
-        <button id="proceedBtn" class="hidden">
+My Love,
 
-            Continue ❤️
+Happy Girlfriend's Day. ❤️
 
-        </button>
+I just wanted to remind you how grateful I am to have you in my life.
 
-    </div>
+Thank you for your kindness, your beautiful smile, your patience, and for making even ordinary days feel special.
 
-</section>
+Being with you has brought so much happiness into my world, and I hope today reminds you just how deeply you're loved and appreciated.
 
-    <!-- HEART SECTION -->
+No matter what tomorrow brings, I'll always choose you and cherish every little moment we share.
 
-    <section class="heart-section hidden" id="heartSection">
+Thank you for being you.
 
-        <div id="heartContainer">
+I love you more than words can ever express.
+
+Forever yours. ❤️
+
+            </p>
+
+            <button id="continueBtn">
+
+                Continue ❤️
+
+            </button>
 
         </div>
 
-      <div class="final-message hidden">
-    <h2 id="typedMessage"></h2>
-</div>
+    </section>
 
-<img src="C:\Users\anene\OneDrive\Pictures\kitty.png"
-     id="sleepKitty"
-     class="sleep-kitty hidden">
+
+
+    <!-- ========================= -->
+    <!-- HEART PAGE -->
+    <!-- ========================= -->
+
+    <section id="heartPage" class="screen hidden">
+
+        <div id="heartContainer"></div>
+
+        <div class="final-message hidden">
+
+            <h2 id="typedMessage">
+
+            </h2>
+
+        </div>
+
+        <img src="kitty-sleep.png"
+             id="sleepKitty"
+             class="sleep-kitty hidden"
+             alt="Sleeping Kitty">
 
     </section>
 
@@ -119,11 +168,6 @@
 
     <script src="script.js"></script>
 
-<!-- Falling Petals -->
-<div class="petals"></div>
-
-<!-- Heart Burst -->
-<div id="heartBurst"></div>
-
 </body>
+
 </html>
