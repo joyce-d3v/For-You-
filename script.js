@@ -1,37 +1,62 @@
-// ===============================
+// =====================================
 // ELEMENTS
-// ===============================
+// =====================================
 
-const yesButtons = document.querySelectorAll("button");
-const questionCard = document.getElementById("questionCard");
+const questionPage = document.getElementById("questionPage");
 
-const loadingScreen = document.getElementById("loading");
-const heartSection = document.getElementById("heartSection");
+const loadingPage = document.getElementById("loadingPage");
 
 const letterPage = document.getElementById("letterPage");
 
-const letterText = document.getElementById("letterText");
+const heartPage = document.getElementById("heartPage");
 
-const proceedBtn = document.getElementById("proceedBtn");
+const yesButtons = document.querySelectorAll(".yesBtn");
+
+const continueBtn = document.getElementById("continueBtn");
 
 const progressBar = document.querySelector(".progress-bar");
+
 const loadingText = document.querySelector(".loading-text");
 
 const heartContainer = document.getElementById("heartContainer");
 
-const finalMessage = document.querySelector(".final-message");
 const typedMessage = document.getElementById("typedMessage");
+
+const finalMessage = document.querySelector(".final-message");
 
 const sleepKitty = document.getElementById("sleepKitty");
 
 const heartsContainer = document.querySelector(".hearts");
+
 const sparklesContainer = document.querySelector(".sparkles");
 
+const petalsContainer = document.querySelector(".petals");
 
 
-// ===============================
+
+// =====================================
+// LOADING MESSAGES
+// =====================================
+
+const messages = [
+
+    "Loading happiness... 💗",
+
+    "Collecting hugs... 🥹",
+
+    "Picking flowers... 🌸",
+
+    "Writing a love letter... 💌",
+
+    "Almost there... ❤️"
+
+];
+
+
+
+// =====================================
 // FLOATING HEARTS
-// ===============================
+// =====================================
 
 function createHeart(){
 
@@ -41,31 +66,31 @@ function createHeart(){
 
     heart.innerHTML = "❤";
 
-    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.left = Math.random()*100 + "vw";
 
-    heart.style.fontSize = (12 + Math.random() * 18) + "px";
+    heart.style.fontSize =
+        (12 + Math.random()*16) + "px";
 
     heart.style.animationDuration =
-        (6 + Math.random() * 6) + "s";
+        (5 + Math.random()*4) + "s";
 
     heartsContainer.appendChild(heart);
 
-    setTimeout(() => {
+    setTimeout(()=>{
 
         heart.remove();
 
-    },12000);
+    },9000);
 
 }
 
-setInterval(createHeart,400);
+setInterval(createHeart,450);
 
 
 
-
-// ===============================
+// =====================================
 // SPARKLES
-// ===============================
+// =====================================
 
 function createSparkle(){
 
@@ -73,12 +98,14 @@ function createSparkle(){
 
     sparkle.className = "sparkle";
 
-    sparkle.style.left = Math.random() * 100 + "vw";
+    sparkle.style.left =
+        Math.random()*100 + "vw";
 
-    sparkle.style.top = Math.random() * 100 + "vh";
+    sparkle.style.top =
+        Math.random()*100 + "vh";
 
     sparkle.style.animationDelay =
-        Math.random() * 2 + "s";
+        Math.random()*2 + "s";
 
     sparklesContainer.appendChild(sparkle);
 
@@ -86,7 +113,7 @@ function createSparkle(){
 
         sparkle.remove();
 
-    },2500);
+    },2000);
 
 }
 
@@ -94,31 +121,9 @@ setInterval(createSparkle,250);
 
 
 
-
-// ===============================
-// LOADING MESSAGES
-// ===============================
-
-const messages = [
-
-    "Loading happiness... 💗",
-
-    "Collecting kisses... 💕",
-
-    "Gathering hugs... 🥹",
-
-    "Making your surprise... ✨",
-
-    "Almost there... ❤️"
-
-];
-
-
-
-
-// ===============================
-// BUTTON CLICK
-// ===============================
+// =====================================
+// START EXPERIENCE
+// =====================================
 
 yesButtons.forEach(button=>{
 
@@ -128,70 +133,60 @@ yesButtons.forEach(button=>{
 
 
 
-
-// ===============================
-// START EXPERIENCE
-// ===============================
-
 function startExperience(){
 
-    questionCard.style.opacity="0";
-    questionCard.style.transform="scale(.92)";
+    questionPage.classList.add("fade-out");
 
     setTimeout(()=>{
 
-        questionCard.classList.add("hidden");
+        questionPage.classList.add("hidden");
 
-        loadingScreen.classList.remove("hidden");
+        loadingPage.classList.remove("hidden");
+
+        loadingPage.classList.add("fade-in");
 
         startLoading();
 
-    },700);
+    },600);
 
 }
 
 
 
-
-// ===============================
+// =====================================
 // LOADING BAR
-// ===============================
+// =====================================
 
 function startLoading(){
 
-    let progress=0;
+    let progress = 0;
 
-    let messageIndex=0;
+    let message = 0;
 
-    loadingText.textContent=messages[0];
+    loadingText.textContent = messages[0];
 
-    const loading=setInterval(()=>{
+    const loading = setInterval(()=>{
 
-        progress+=2;
+        progress += 2;
 
-        progressBar.style.width=progress+"%";
+        progressBar.style.width =
+            progress + "%";
 
-        if(progress%20===0 && messageIndex<messages.length-1){
+        if(progress % 20 === 0 &&
+           message < messages.length-1){
 
-            messageIndex++;
+            message++;
 
-            loadingText.textContent=messages[messageIndex];
+            loadingText.textContent =
+                messages[message];
 
         }
 
-        if(progress>=100){
+        if(progress >= 100){
 
             clearInterval(loading);
 
-            setTimeout(()=>{
-
-                loadingScreen.classList.add("hidden");
-
-letterPage.classList.remove("hidden");
-
-typeLetter();
-
-            },700);
+            setTimeout(showLetter,700);
 
         }
 
@@ -199,32 +194,73 @@ typeLetter();
 
 }
 
-// ===============================
-// CREATE THE "I LOVE YOU" HEART
-// ===============================
 
-function createLoveHeart() {
+
+// =====================================
+// SHOW LETTER
+// =====================================
+
+function showLetter(){
+
+    loadingPage.classList.add("hidden");
+
+    letterPage.classList.remove("hidden");
+
+    letterPage.classList.add("fade-in");
+
+}
+
+
+
+// =====================================
+// CONTINUE BUTTON
+// =====================================
+
+continueBtn.addEventListener("click",()=>{
+
+    letterPage.classList.add("fade-out");
+
+    setTimeout(()=>{
+
+        letterPage.classList.add("hidden");
+
+        heartPage.classList.remove("hidden");
+
+        heartPage.classList.add("fade-in");
+
+        createLoveHeart();
+
+    },600);
+
+});
+
+// =====================================
+// CREATE "I LOVE YOU" HEART
+// =====================================
+
+function createLoveHeart(){
 
     heartContainer.innerHTML = "";
 
-    const isMobile = window.innerWidth <= 600;
-
-    const scale = isMobile ? 12 : 18;
-    const step = isMobile ? 0.14 : 0.08;
-    const spacing = isMobile ? 1.3 : 1;
-
     const points = [];
 
-    // Create heart points
-    for (let t = 0; t < Math.PI * 2; t += step) {
+    // Make heart smaller on phones
+    const isMobile = window.innerWidth <= 600;
 
-        const x = 16 * Math.pow(Math.sin(t), 3);
+    const step = isMobile ? 0.12 : 0.08;
+
+    const scale = isMobile ? 12 : 18;
+
+    // Heart equation
+    for(let t = 0; t < Math.PI * 2; t += step){
+
+        const x = 16 * Math.pow(Math.sin(t),3);
 
         const y =
             13 * Math.cos(t)
-            - 5 * Math.cos(2 * t)
-            - 2 * Math.cos(3 * t)
-            - Math.cos(4 * t);
+            -5 * Math.cos(2*t)
+            -2 * Math.cos(3*t)
+            -Math.cos(4*t);
 
         points.push({
 
@@ -236,43 +272,33 @@ function createLoveHeart() {
 
     }
 
-    points.forEach((point, index) => {
+    // Spread words out a little more on phones
+    const spacing = isMobile ? 1.35 : 1;
+
+    points.forEach((point,index)=>{
 
         const word = document.createElement("div");
 
         word.className = "love-word";
 
-        // Desktop = more words
-        // Mobile = fewer words
-        if (isMobile) {
-
-            const mobileWords = [
-                "LOVE",
-                "♡",
-                "❤️"
-            ];
-
-            word.textContent =
-                mobileWords[Math.floor(Math.random() * mobileWords.length)];
-
-        } else {
-
-            word.textContent =
-                Math.random() > 0.25
-                    ? "I LOVE YOU"
-                    : "♡";
-
-        }
+        // Mostly words, a few hearts
+        word.textContent =
+            Math.random() > 0.2
+            ? "I LOVE YOU"
+            : "❤";
 
         // Random starting position
-        word.style.left = Math.random() * window.innerWidth + "px";
-        word.style.top = Math.random() * window.innerHeight + "px";
+        word.style.left =
+            Math.random()*window.innerWidth + "px";
+
+        word.style.top =
+            Math.random()*window.innerHeight + "px";
 
         word.style.opacity = "0";
 
         heartContainer.appendChild(word);
 
-        setTimeout(() => {
+        setTimeout(()=>{
 
             word.style.opacity = "1";
 
@@ -282,21 +308,24 @@ function createLoveHeart() {
             word.style.top =
                 `calc(45% + ${point.y * spacing}px)`;
 
-        }, index * 40);
+        },index*45);
 
     });
 
-    setTimeout(() => {
+    // Wait until heart finishes forming
+    setTimeout(()=>{
 
         startHeartbeat();
 
-    }, points.length * 40 + 1200);
+    },points.length*45 + 1200);
 
 }
 
-// ===============================
+
+
+// =====================================
 // HEARTBEAT
-// ===============================
+// =====================================
 
 function startHeartbeat(){
 
@@ -311,61 +340,68 @@ function startHeartbeat(){
         words.forEach(word=>{
 
             word.style.transform = beat
-                ? "scale(1.15)"
+
+                ? "scale(1.12)"
+
                 : "scale(1)";
 
         });
 
     },800);
 
+    // After a short pause...
     setTimeout(()=>{
 
         typeMessage();
 
-    },1800);
+    },2000);
 
 }
 
-
-
-// ===============================
-// TYPEWRITER
-// ===============================
+// =====================================
+// TYPEWRITER MESSAGE
+// =====================================
 
 function typeMessage(){
 
     finalMessage.classList.remove("hidden");
 
-    const text =
+    const message =
 `Happy Girlfriend's Day! ❤️`;
 
     let i = 0;
 
+    typedMessage.innerHTML = "";
+
     const typing = setInterval(()=>{
 
-        typedMessage.innerHTML += text.charAt(i);
+        typedMessage.innerHTML += message.charAt(i);
 
         i++;
 
-        if(i >= text.length){
+        if(i >= message.length){
 
             clearInterval(typing);
 
-            setTimeout(showKitty,800);
+            setTimeout(()=>{
 
-            startPetals();
+                showKitty();
+
+                startPetals();
+
+            },800);
 
         }
 
-    },75);
+    },80);
 
 }
 
 
 
-// ===============================
-// SHOW SLEEPING KITTY
-// ===============================
+// =====================================
+// SHOW KITTY
+// =====================================
 
 function showKitty(){
 
@@ -377,101 +413,111 @@ function showKitty(){
 
 
 
-// ===============================
+// =====================================
 // FALLING PETALS
-// ===============================
+// =====================================
 
 function startPetals(){
-
-    const petals = document.querySelector(".petals");
 
     setInterval(()=>{
 
         const petal = document.createElement("div");
 
+        petal.className = "petal";
+
         petal.innerHTML = "🌸";
 
-        petal.style.position = "absolute";
+        petal.style.left =
+            Math.random()*100 + "vw";
 
-        petal.style.left = Math.random()*100+"vw";
-
-        petal.style.top = "-50px";
+        petal.style.animationDuration =
+            (5 + Math.random()*4) + "s";
 
         petal.style.fontSize =
-            (16+Math.random()*10)+"px";
+            (18 + Math.random()*12) + "px";
 
-        petal.style.opacity = ".9";
-
-        petal.style.transition = "6s linear";
-
-        petals.appendChild(petal);
-
-        requestAnimationFrame(()=>{
-
-            petal.style.top = "110vh";
-
-            petal.style.transform =
-                `translateX(${Math.random()*200-100}px)
-                 rotate(${Math.random()*360}deg)`;
-
-        });
+        petalsContainer.appendChild(petal);
 
         setTimeout(()=>{
 
             petal.remove();
 
-        },6500);
+        },9000);
 
     },350);
 
 }
 
-const letter = `My Baby,
 
-Sometimes it's hard to find the perfect words to express how much someone means to you, but I'll try anyway.
 
-From the moment you became a part of my life, you've brought so much happiness, comfort and warmth into my world. Your smile has a way of making difficult days feel lighter and your presence has become something I genuinely look forward to.
+// =====================================
+// OPTIONAL:
+// HEART BURST WHEN MESSAGE APPEARS
+// =====================================
 
-I admire your heart, your kindness and all the little things that make you uniquely you. Whether we're laughing over something silly or simply spending time together, every moment feels special because it's with you.
+function createBurst(){
 
-Thank you for being exactly who you are.
+    for(let i = 0; i < 18; i++){
 
-No matter what the future holds, I hope we continue making beautiful memories together, supporting one another and sharing countless reasons to smile.
+        const heart = document.createElement("div");
 
-Before you see the little surprise waiting for you...
+        heart.innerHTML = "❤";
 
-I just wanted you to know this.
+        heart.style.position = "absolute";
 
-I am deeply in love with you, more than words can ever fully express. ❤️`;
+        heart.style.left = "50%";
 
-function typeLetter(){
+        heart.style.top = "50%";
 
-    let i = 0;
+        heart.style.fontSize = "22px";
 
-    const typing = setInterval(()=>{
+        heart.style.pointerEvents = "none";
 
-        letterText.textContent += letter.charAt(i);
+        heart.style.transition = "1.2s ease";
 
-        i++;
+        heart.style.opacity = "1";
 
-        if(i >= letter.length){
+        document.body.appendChild(heart);
 
-            clearInterval(typing);
+        requestAnimationFrame(()=>{
 
-            proceedBtn.classList.remove("hidden");
+            const angle = Math.random()*360;
 
-        }
+            const distance = 120 + Math.random()*120;
 
-    },30);
+            heart.style.transform =
+            `translate(
+                ${Math.cos(angle*Math.PI/180)*distance}px,
+                ${Math.sin(angle*Math.PI/180)*distance}px
+            )`;
+
+            heart.style.opacity = "0";
+
+        });
+
+        setTimeout(()=>{
+
+            heart.remove();
+
+        },1200);
+
+    }
 
 }
 
-proceedBtn.addEventListener("click",()=>{
 
-    letterPage.classList.add("hidden");
 
-    heartSection.classList.remove("hidden");
+// =====================================
+// CALL HEART BURST
+// =====================================
 
-    createLoveHeart();
+// Add this line inside typeMessage()
+// just BEFORE showKitty();
+//
+// createBurst();
 
-});
+
+
+// =====================================
+// DONE ❤️
+// =====================================
