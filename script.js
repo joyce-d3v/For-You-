@@ -197,79 +197,94 @@ function startLoading(){
 // CREATE THE "I LOVE YOU" HEART
 // ===============================
 
-function createLoveHeart(){
+function createLoveHeart() {
 
     heartContainer.innerHTML = "";
 
+    const isMobile = window.innerWidth <= 600;
+
+    const scale = isMobile ? 12 : 18;
+    const step = isMobile ? 0.14 : 0.08;
+    const spacing = isMobile ? 1.3 : 1;
+
     const points = [];
 
-    // Heart equation
-    for(let t = 0; t < Math.PI * 2; t += 0.08){
+    // Create heart points
+    for (let t = 0; t < Math.PI * 2; t += step) {
 
-        const x = 16 * Math.pow(Math.sin(t),3);
+        const x = 16 * Math.pow(Math.sin(t), 3);
 
         const y =
             13 * Math.cos(t)
-            -5 * Math.cos(2*t)
-            -2 * Math.cos(3*t)
-            -Math.cos(4*t);
+            - 5 * Math.cos(2 * t)
+            - 2 * Math.cos(3 * t)
+            - Math.cos(4 * t);
 
         points.push({
 
-            x: x * 18,
+            x: x * scale,
 
-            y: -y * 18
+            y: -y * scale
 
         });
 
     }
 
-
-    points.forEach((point,index)=>{
+    points.forEach((point, index) => {
 
         const word = document.createElement("div");
 
         word.className = "love-word";
 
-        // Mix text and hearts
-        word.textContent =
-            Math.random() > 0.25
-            ? "I LOVE YOU"
-            : "♡";
+        // Desktop = more words
+        // Mobile = fewer words
+        if (isMobile) {
 
-        // Start from random place
-        word.style.left =
-            (window.innerWidth * Math.random()) + "px";
+            const mobileWords = [
+                "LOVE",
+                "♡",
+                "❤️"
+            ];
 
-        word.style.top =
-            (window.innerHeight * Math.random()) + "px";
+            word.textContent =
+                mobileWords[Math.floor(Math.random() * mobileWords.length)];
+
+        } else {
+
+            word.textContent =
+                Math.random() > 0.25
+                    ? "I LOVE YOU"
+                    : "♡";
+
+        }
+
+        // Random starting position
+        word.style.left = Math.random() * window.innerWidth + "px";
+        word.style.top = Math.random() * window.innerHeight + "px";
 
         word.style.opacity = "0";
 
         heartContainer.appendChild(word);
 
-        setTimeout(()=>{
+        setTimeout(() => {
 
             word.style.opacity = "1";
 
             word.style.left =
-                `calc(50% + ${point.x}px)`;
+                `calc(50% + ${point.x * spacing}px)`;
 
             word.style.top =
-                `calc(45% + ${point.y}px)`;
+                `calc(45% + ${point.y * spacing}px)`;
 
-        },index*40);
+        }, index * 40);
 
     });
 
-
-    // Wait until heart finishes
-
-    setTimeout(()=>{
+    setTimeout(() => {
 
         startHeartbeat();
 
-    },points.length*40+1200);
+    }, points.length * 40 + 1200);
 
 }
 
