@@ -187,9 +187,9 @@ function startLoading(){
 
                 loadingScreen.classList.add("hidden");
 
-                heartSection.classList.remove("hidden");
+letterPage.classList.remove("hidden");
 
-                createLoveHeart();
+typeLetter();
 
             },700);
 
