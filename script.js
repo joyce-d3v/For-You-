@@ -8,6 +8,12 @@ const questionCard = document.getElementById("questionCard");
 const loadingScreen = document.getElementById("loading");
 const heartSection = document.getElementById("heartSection");
 
+const letterPage = document.getElementById("letterPage");
+
+const letterText = document.getElementById("letterText");
+
+const proceedBtn = document.getElementById("proceedBtn");
+
 const progressBar = document.querySelector(".progress-bar");
 const loadingText = document.querySelector(".loading-text");
 
