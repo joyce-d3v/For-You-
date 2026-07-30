@@ -425,3 +425,53 @@ function startPetals(){
     },350);
 
 }
+
+const letter = `My Baby,
+
+Sometimes it's hard to find the perfect words to express how much someone means to you, but I'll try anyway.
+
+From the moment you became a part of my life, you've brought so much happiness, comfort and warmth into my world. Your smile has a way of making difficult days feel lighter and your presence has become something I genuinely look forward to.
+
+I admire your heart, your kindness and all the little things that make you uniquely you. Whether we're laughing over something silly or simply spending time together, every moment feels special because it's with you.
+
+Thank you for being exactly who you are.
+
+No matter what the future holds, I hope we continue making beautiful memories together, supporting one another and sharing countless reasons to smile.
+
+Before you see the little surprise waiting for you...
+
+I just wanted you to know this.
+
+I am deeply in love with you, more than words can ever fully express. ❤️`;
+
+function typeLetter(){
+
+    let i = 0;
+
+    const typing = setInterval(()=>{
+
+        letterText.textContent += letter.charAt(i);
+
+        i++;
+
+        if(i >= letter.length){
+
+            clearInterval(typing);
+
+            proceedBtn.classList.remove("hidden");
+
+        }
+
+    },30);
+
+}
+
+proceedBtn.addEventListener("click",()=>{
+
+    letterPage.classList.add("hidden");
+
+    heartSection.classList.remove("hidden");
+
+    createLoveHeart();
+
+});
