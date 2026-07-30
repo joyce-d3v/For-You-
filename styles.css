@@ -475,6 +475,92 @@ button{
     display:none;
 }
 
+/* LOVE LETTER */
+
+.letter-page{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:25px;
+
+}
+
+.letter-card{
+
+    width:700px;
+
+    max-width:95%;
+
+    background:rgba(255,255,255,.92);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    box-shadow:0 15px 40px rgba(255,105,180,.2);
+
+    animation:cardFloat 4s ease-in-out infinite;
+
+}
+
+.letter-card h1{
+
+    text-align:center;
+
+    color:#ff4d94;
+
+    margin-bottom:25px;
+
+}
+
+#letterText{
+
+    line-height:2;
+
+    color:#555;
+
+    white-space:pre-line;
+
+    min-height:320px;
+
+}
+
+#proceedBtn{
+
+    margin:25px auto 0;
+
+    display:block;
+
+}
+
+@media(max-width:600px){
+
+    .letter-card{
+
+        padding:25px;
+
+    }
+
+    #letterText{
+
+        font-size:15px;
+
+        line-height:1.8;
+
+        min-height:350px;
+
+    }
+
+}
+
 .final-message{
     position:absolute;
     top:1%;
