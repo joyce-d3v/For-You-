@@ -146,42 +146,6 @@ body{
 }
 
 
-/* ===========================
-   KITTY
-=========================== */
-
-.kitty{
-
-    width:170px;
-
-    margin-bottom:18px;
-
-    animation:kittyBounce 3s ease-in-out infinite;
-
-}
-
-
-@keyframes kittyBounce{
-
-    0%{
-
-        transform:translateY(0);
-
-    }
-
-    50%{
-
-        transform:translateY(-8px);
-
-    }
-
-    100%{
-
-        transform:translateY(0);
-
-    }
-
-}
 
 
 /* ===========================
