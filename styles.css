@@ -457,35 +457,6 @@ button:active{
 }
 
 
-/* ===========================
-   SLEEPING KITTY
-=========================== */
-
-.sleep-kitty{
-
-    position:absolute;
-
-    bottom:20px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:170px;
-
-    opacity:0;
-
-}
-
-.sleep-kitty.show{
-
-    animation:
-
-        kittyWalk 2.2s forwards,
-
-        kittySleep 2s ease-in-out infinite 2.2s;
-
-}
 
 
 @keyframes kittyWalk{
