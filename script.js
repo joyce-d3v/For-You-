@@ -218,23 +218,25 @@ function showLetter(){
 // CONTINUE BUTTON
 // =====================================
 
-continueBtn.addEventListener("click",()=>{
+if (continueBtn) {
+    continueBtn.addEventListener("click", () => {
 
-    letterPage.classList.add("fade-out");
+        letterPage.classList.add("fade-out");
 
-    setTimeout(()=>{
+        setTimeout(() => {
 
-        letterPage.classList.add("hidden");
+            letterPage.classList.add("hidden");
 
-        heartPage.classList.remove("hidden");
+            heartPage.classList.remove("hidden");
 
-        heartPage.classList.add("fade-in");
+            heartPage.classList.add("fade-in");
 
-        createLoveHeart();
+            createLoveHeart();
 
-    },600);
+        }, 600);
 
-});
+    });
+}
 
 // =====================================
 // CREATE "I LOVE YOU" HEART
